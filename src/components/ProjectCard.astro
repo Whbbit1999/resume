@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components"
+interface Props {
+  title: string
+  link?: string
+  description: string
+  info: string[]
+}
+
+const { title, description, info, link } = Astro.props
+---
+
+<h3 class="text-primary hover:text-secondary font-semibold duration-300 text-xl mt-12">
+  {
+    link ? (
+      <a class="inline-flex items-center gap-1" href={link} target="_blank" rel="noopener noreferrer">
+        {title}
+        <Icon name="ph:arrow-square-out-duotone" />
+      </a>
+    ) : (
+      title
+    )
+  }
+</h3>
+
+<div class="text-[#22313f] mt-8">
+  {description}
+</div>
+
+<div class="my-4">
+  {info.map((item) => <div class="my-1">{item}</div>)}
+</div>

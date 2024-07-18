@@ -1,0 +1,26 @@
+{
+  "name": "astro-resume",
+  "type": "module",
+  "version": "0.0.1",
+  "author": {
+    "name": "Whbbit1999"
+  },
+  "description": "My resume built with Astro",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.8.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/ph": "^1.1.13",
+    "astro": "^4.11.5",
+    "astro-icon": "^1.1.0",
+    "tailwindcss": "^3.4.5",
+    "typescript": "^5.5.3"
+  }
+}

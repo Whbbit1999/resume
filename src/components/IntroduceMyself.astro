@@ -1,0 +1,11 @@
+---
+import SectionHeader from "./SectionHeader.astro"
+interface Props {
+  introduceMyself: string[]
+}
+const { introduceMyself } = Astro.props
+---
+
+<SectionHeader title="个人介绍" icon="ph:user-duotone" />
+
+{introduceMyself.map((item) => <p class="text-textPrimary mb-2">{item}</p>)}

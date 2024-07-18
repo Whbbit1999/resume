@@ -1,0 +1,22 @@
+---
+import SectionHeader from "./SectionHeader.astro"
+import siteConfig from "../site.config.json"
+
+const educations = siteConfig.educations
+---
+
+<SectionHeader title="教育背景" icon="ph:globe-stand-duotone" />
+
+<ul>
+  {
+    educations.map((education) => (
+      <li class="flex items-center flex-wrap gap-2 mb-2 text-textPrimary ">
+        <h3>{education.school}</h3>
+        <span>{education.major}</span>
+        <span>
+          {education.start}-{education.end}
+        </span>
+      </li>
+    ))
+  }
+</ul>

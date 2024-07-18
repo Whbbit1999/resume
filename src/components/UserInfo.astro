@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  username: string
+  age: string
+  gender: string
+  state: string
+  otherInfo: { title: string; content: string; icon: string; link?: string }[]
+}
+const { username, age, gender, state, otherInfo } = Astro.props
+---
+
+<section class="bg-[#f8f8f8] my-4 px-4 py-8 rounded-md relative">
+  <p class="bg-primary text-white py-2 px-4 rounded-tr-md rounded-bl-md text-center absolute top-0 right-0">
+    <span>{state}</span>
+  </p>
+  <img class="w-24 h-24 bg-white mx-auto rounded-full" src="/codelogo.png" alt="" />
+  <h1 class="text-textPrimary font-semibold text-center my-4 text-2xl">{username}</h1>
+  <p class="text-[#7f8c8d] text-center my-2">
+    <span>{age}岁</span>
+    <span>{gender}</span>
+  </p>
+
+  <!-- 基本信息 -->
+  <section>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {
+        otherInfo.map((info) => (
+          <li class="text-center flex items-center justify-center gap-1 text-textPrimary">
+            {info.icon && <Icon name={info.icon} />}
+            <span class="font-semibold">{info.title}</span>
+            {info.link ? (
+              <a href={info.link} target="_blank">
+                {info.content}
+              </a>
+            ) : (
+              <span>{info.content}</span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</section>

@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro"
+import UserInfo from "../components/UserInfo.astro"
+import Educations from "../components/Educations.astro"
+import Works from "../components/Works.astro"
+import Projects from "../components/Projects.astro"
+import Skills from "../components/Skills.astro"
+import IntroduceMyself from "../components/IntroduceMyself.astro"
+import siteConfig from "../site.config.json"
+const title = siteConfig.username + siteConfig.workYear + siteConfig.jobType + siteConfig.city
+---
+
+<Layout title={title}>
+  <main class="container mx-auto pb-14 px-4">
+    <UserInfo
+      username={siteConfig.username}
+      age={siteConfig.age}
+      gender={siteConfig.gender}
+      state={siteConfig.state}
+      otherInfo={siteConfig.otherInfo}
+    />
+    <IntroduceMyself introduceMyself={siteConfig.introduceMyself} />
+    <Skills skills={siteConfig.skills} />
+    <Works works={siteConfig.works} />
+    <Educations educations={siteConfig.educations} />
+    <Projects projects={siteConfig.projects} />
+  </main>
+</Layout>
+
+<style></style>

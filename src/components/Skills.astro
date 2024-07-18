@@ -1,0 +1,23 @@
+---
+import SectionHeader from "./SectionHeader.astro"
+interface Props {
+  skills: {
+    title: string
+    content: string[] | null
+  }[]
+}
+const { skills } = Astro.props
+---
+
+<SectionHeader title="技能" icon="ph:circle-wavy-check-duotone" />
+
+<div class="text-textPrimary">
+  {
+    skills.map((skill) => (
+      <ol class="my-3">
+        <h4 class="font-semibold">{skill.title}</h4>
+        {skill.content && skill.content.map((content) => <li class="">{content}</li>)}
+      </ol>
+    ))
+  }
+</div>

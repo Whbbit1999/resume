@@ -1,0 +1,42 @@
+---
+import SectionHeader from "./SectionHeader.astro"
+interface Props {
+  works: {
+    company: string
+    timeRange: string
+    position: string[]
+    description: string[]
+  }[]
+}
+const { works } = Astro.props
+---
+
+<SectionHeader title="工作经历" icon="ph:suitcase-simple-duotone" />
+
+<ul>
+  {
+    works.map((work) => (
+      <li class="mb-8 text-textPrimary">
+        <header class="flex items-center justify-between mb-1">
+          <h3>
+            {work.timeRange}
+            {work.company}
+          </h3>
+        </header>
+
+        <section class="flex flex-wrap items-center gap-2 mb-1 text-textPrimary ">
+          {work.position.map((position) => (
+            <div class="bg-primary/80 px-2 py-1 rounded-md text-white text-xs">{position}</div>
+          ))}
+        </section>
+
+        {work.description.map((description) => (
+          <div class="flex items-center gap-1">
+            <div class="dot w-1 h-1 rounded-full bg-textPrimary" />
+            {description}
+          </div>
+        ))}
+      </li>
+    ))
+  }
+</ul>

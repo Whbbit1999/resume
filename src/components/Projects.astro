@@ -1,0 +1,27 @@
+---
+import ProjectCard from "./ProjectCard.astro"
+import SectionHeader from "./SectionHeader.astro"
+interface Props {
+  projects: {
+    name: string
+    timeRange: string
+    link: string
+    company: string
+    description: string[]
+  }[]
+}
+const { projects } = Astro.props
+---
+
+<SectionHeader title="精选项目" icon="ph:brackets-angle-duotone" />
+
+{
+  projects.map((project) => (
+    <ProjectCard
+      title={project.name}
+      link={project.link}
+      description={`${project.timeRange} ${project.company}`}
+      info={project.description}
+    />
+  ))
+}
